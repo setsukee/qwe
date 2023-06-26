@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		Height="450" Width="400"
+		CanResize="False"
+		WindowStartupLocation="CenterScreen"
+        x:Class="dict.View.Auth"
+        Title="Авторизация"
+		Icon="/teacher.ico">
+	<Grid>
+		<StackPanel VerticalAlignment="Center" Spacing="5"
+					HorizontalAlignment="Center">
+			<TextBox Width="300"
+					 Name="logb"
+					Padding="10 0 0 0"
+					 VerticalContentAlignment="Center"
+					 Watermark="Логин"
+					 CornerRadius="15"/>
+
+			<TextBox Width="300"
+					 Name="passb"
+					 Padding="10 0 0 0"
+					 Watermark="Пароль"
+					 VerticalContentAlignment="Center"
+					 CornerRadius="15"
+					 PasswordChar="*"/>
+			<Button Content="Вход"
+					BorderThickness="2"
+					Name="EnterButton"
+					CornerRadius="15"
+					Width="60"
+					HorizontalAlignment="Center"/>
+
+			<TextBlock Name="err" HorizontalAlignment="Center" Margin="10"
+					   Foreground="Red"/>
+		</StackPanel>
+	</Grid>
+</Window>

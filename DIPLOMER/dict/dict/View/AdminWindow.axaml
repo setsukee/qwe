@@ -1,0 +1,109 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        x:Class="dict.View.AdminWindow"
+        Title="Окно администратора"
+		WindowStartupLocation="CenterScreen"
+		Height="450" Width="800" CanResize="False"
+		Icon="/teacher.ico">
+	<Window.Styles>
+		<Style Selector="Button">
+
+			<Style.Animations>
+				<Animation Duration="0:0:10">
+					<KeyFrame Cue="1%">
+						<Setter Property="Opacity" Value="0.0"/>
+					</KeyFrame>
+					<KeyFrame Cue="100%">
+						<Setter Property="Opacity" Value="1.0"/>
+					</KeyFrame>
+				</Animation>
+			</Style.Animations>
+		</Style>
+	</Window.Styles>
+	<Grid ColumnDefinitions="* 1.5*">
+		<Border Name="bord" Grid.ColumnSpan="2" CornerRadius="10" >
+			<StackPanel Spacing="20">
+				<TextBlock FontSize="40"
+						   FontFamily="Comic Sans MS"
+						   Text="Панель Администратора"
+						   HorizontalAlignment="Center"
+						   Foreground="White">
+
+				</TextBlock>
+
+				<Button  Content="Добавить студента"
+						 BorderThickness="3"
+						 FontSize="20"
+					Width="200" 
+					CornerRadius="5"
+					FontFamily="Comic Sans MS"
+					Name="addstud"
+						>
+
+				</Button>
+
+				<Button Content="Добавить учителя"
+						FontSize="20"
+						BorderThickness="3"
+						Width="200" 
+						CornerRadius="5"
+						FontFamily="Comic Sans MS"
+						Name="addteach"
+						>
+
+				</Button>
+
+				<Button Content="Добавить группу"
+						FontSize="20"
+						
+						BorderThickness="3"
+						Width="200" 
+						CornerRadius="5"
+						FontFamily="Comic Sans MS"
+						Name="addgroup"
+						>
+
+				</Button>
+
+
+
+				
+
+
+			</StackPanel>
+
+
+				
+
+
+
+			
+			
+			
+
+
+		</Border>
+		<StackPanel Margin="50" HorizontalAlignment="Right" Grid.Column="1" VerticalAlignment="Top" >
+			<TextBlock FontSize="30" Name="surname" FontFamily="Comic Sans MS"  >
+
+			</TextBlock>
+			<TextBlock FontSize="30" Name="name" FontFamily="Comic Sans MS" >
+
+			</TextBlock>
+
+			<Button Name="exit"
+			BorderThickness="3"
+					FontSize="20"
+	Content="Выйти из аккаунта"
+	HorizontalAlignment="Right"
+	Grid.Column="1">
+
+			</Button>
+		</StackPanel>
+		
+		
+	</Grid>
+</Window>

@@ -1,0 +1,74 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		Height="450" Width="800" CanResize="False" MaxHeight="450" MaxWidth="800"
+        x:Class="dict.MainWindow"
+		WindowStartupLocation="CenterScreen"
+        Title="Окно преподавателя"
+		Icon="teacher.ico">
+	<Grid Background="Transparent"
+		  RowDefinitions="auto *">
+		<StackPanel Orientation="Horizontal" Grid.Row="0"
+					Margin="10"
+					Spacing="60">
+			<ComboBox Width="100" Height="30" VerticalAlignment="Center" 
+					  Name="Group"/>
+			<ComboBox Width="100" Height="30" VerticalAlignment="Center" 
+					  Name="Sub"/>
+			<TextBlock Name="err" IsVisible="False" VerticalAlignment="Center"/>
+			<Button Content="←"  Height="30" Name="btnleft" />
+			<TextBlock  Name="Datetxt" VerticalAlignment="Center"/>
+			<Button Content="->" Height="30" Name="btnright"/>
+		</StackPanel>
+		
+		<Button HorizontalAlignment="Right" Content="Выйти" Name="exitcl"/>
+		
+		<DataGrid x:Name="StudentDG" 
+				  RowHeight="45"
+				  Background="Transparent"
+				  HorizontalAlignment="Stretch"
+				  RowBackground="LightBlue"
+				  Grid.Row="1" 
+				  
+				  
+			VerticalAlignment="Stretch"
+				  GridLinesVisibility="All" >
+			
+			<DataGrid.Columns >
+				<DataGridTextColumn   Header="id" Binding="{Binding StudentId}" />
+				<DataGridTextColumn Header="Фамилия" Binding="{Binding Firstname}" />
+				<DataGridTextColumn Header="Имя" Binding="{Binding Lastname}" />
+				<DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" />
+				
+				<DataGridTextColumn Width="50" Header="ПН" Binding="{Binding markpn}" />
+				<DataGridTextColumn Width="50" Header="ВТ" Binding="{Binding markvt}"/>
+				<DataGridTextColumn Width="50" Header="СР" Binding="{Binding marksr}"/>
+				<DataGridTextColumn Width="50" Header="ЧТ" Binding="{Binding markth}"/>
+				<DataGridTextColumn Width="50" Header="ПТ" Binding="{Binding markft}"/>
+				<DataGridTemplateColumn IsReadOnly="True" Header="Средний балл успеваемости" Width="280">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate >
+							<StackPanel Spacing="5" Orientation="Horizontal" VerticalAlignment="Center">
+
+								<Label CornerRadius="7" Height="5" Width="160" Background="{Binding	brush}"  VerticalAlignment="Center"> </Label>
+								<TextBlock Text="{Binding Average, StringFormat={}{0:0.0.0}}">
+
+								</TextBlock>
+							</StackPanel>
+
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+					<DataGridTemplateColumn.CellEditingTemplate>
+						<DataTemplate >
+							<NumericUpDown Value="{Binding avarage}" FormatString="N0" HorizontalAlignment="Stretch" Minimum="0" Maximum="120"  />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellEditingTemplate>
+				</DataGridTemplateColumn>
+			</DataGrid.Columns>
+		</DataGrid>
+		
+	</Grid>
+</Window>
